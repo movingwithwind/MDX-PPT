@@ -3,6 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  overflow-x:hidden;
 }
 
 @theme inline {
@@ -22,5 +23,128 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:  var(--font-inter), sans-serif;
+}
+
+.prose table { border-collapse: collapse; }
+.prose th, .prose td { border: 1px solid #fff; }
+.prose thead th { border-bottom: 2px solid #fff; }
+
+.prose {
+  font-size: 1.5rem; /* 24px */
+  line-height: 1.75; /* 增加行高 */
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.pdf-export.prose,
+.pdf-export.prose * {
+  color: #111827;
+}
+
+.pdf-export.prose {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.pdf-export.prose h1 {
+  font-size: 2rem;
+}
+
+.pdf-export.prose h2 {
+  font-size: 1.6rem;
+}
+
+.pdf-export.prose h3 {
+  font-size: 1.3rem;
+}
+
+.pdf-export.prose table {
+  border-collapse: collapse;
+  border: 1px solid #111827;
+}
+
+.pdf-export.prose th,
+.pdf-export.prose td {
+  border: 1px solid #111827;
+}
+
+.pdf-export.prose thead th {
+  border-bottom: 2px solid #111827;
+}
+
+.pdf-export.prose a {
+  color: #1d4ed8;
+}
+
+.pdf-export.prose pre {
+  background: #f8fafc !important;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+
+.pdf-export.prose pre code {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.pdf-export.prose .shiki {
+  background: transparent !important;
+}
+
+.pdf-export.prose :not(pre) > code {
+  background: #e5e7eb;
+  color: #111827;
+  border-radius: 6px;
+  padding: 0.1rem 0.35rem;
+}
+
+
+/* 为代码块设置透明背景 */
+pre code {
+  background-color: transparent !important;
+}
+
+pre {
+  background-color: transparent !important;
+}
+
+/* PDF 导出专用 */
+.pdf-export.prose table,
+.pdf-export.prose tr,
+.pdf-export.prose th,
+.pdf-export.prose td {
+  border-color: #111827 !important;
+  border-style: solid !important;
+}
+
+.pdf-export.prose table {
+  border-width: 2px !important;
+  border-collapse: collapse !important;
+}
+
+.pdf-export.prose th,
+.pdf-export.prose td {
+  border-width: 1.5px !important;
+}
+
+.pdf-export.prose pre,
+.pdf-export.prose .shiki {
+  background-color: #0f172a !important;
+  color: #e2e8f0 !important;
+  border: 1px solid #334155 !important;
+}
+
+.pdf-export.prose .shiki {
+  filter: saturate(1.2) contrast(1.15);
+}
+
+.pdf-export.prose pre code {
+  color: inherit !important;
 }
