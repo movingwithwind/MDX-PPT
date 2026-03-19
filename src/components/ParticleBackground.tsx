@@ -26,20 +26,21 @@ export default function ParticleBackground() {
 
     let particles: Particle[] = [];
     let animationId: number;
+    let width = 0;
+    let height = 0;
 
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * dpr;
-      canvas.height = rect.height * dpr;
-      canvas.style.width = `${rect.width}px`;
-      canvas.style.height = `${rect.height}px`;
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
       ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.scale(dpr, dpr);
 
       particles = Array.from({ length: PARTICLE_COUNT }, () => ({
-        x: Math.random() * rect.width,
-        y: Math.random() * rect.height,
+        x: Math.random() * width,
+        y: Math.random() * height,
         vx: (Math.random() - 0.5) * PARTICLE_SPEED,
         vy: (Math.random() - 0.5) * PARTICLE_SPEED,
         radius: 1 + Math.random() * 1.5,
@@ -47,8 +48,7 @@ export default function ParticleBackground() {
     };
 
     const draw = () => {
-      const rect = canvas.getBoundingClientRect();
-      ctx.clearRect(0, 0, rect.width, rect.height);
+      ctx.clearRect(0, 0, width, height);
 
       const lineColor = "rgba(56, 189, 248, 0.22)";
       const dotColor = "rgba(167, 243, 208, 0.9)";
@@ -57,8 +57,8 @@ export default function ParticleBackground() {
         const p = particles[i];
         p.x += p.vx;
         p.y += p.vy;
-        if (p.x < 0 || p.x > rect.width) p.vx *= -1;
-        if (p.y < 0 || p.y > rect.height) p.vy *= -1;
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
       }
 
       for (let i = 0; i < particles.length; i++) {
@@ -90,12 +90,15 @@ export default function ParticleBackground() {
     resize();
     draw();
 
-    const observer = new ResizeObserver(resize);
-    observer.observe(canvas);
+    window.addEventListener("resize", resize);
+    window.addEventListener("orientationchange", resize);
+    document.addEventListener("fullscreenchange", resize);
 
     return () => {
       cancelAnimationFrame(animationId);
-      observer.disconnect();
+      window.removeEventListener("resize", resize);
+      window.removeEventListener("orientationchange", resize);
+      document.removeEventListener("fullscreenchange", resize);
     };
   }, []);
 
@@ -103,7 +106,7 @@ export default function ParticleBackground() {
     <canvas
       ref={canvasRef}
       aria-hidden
-      className="pointer-events-none absolute inset-0 z-0 h-full w-full"
+      className="pointer-events-none fixed inset-0 z-0 h-screen w-screen"
     />
   );
 }
