@@ -95,7 +95,7 @@ export default function SlideContainer({ children }: SlideContainerProps) {
     <div className="flex min-h-screen flex-col items-center justify-center bg-black text-white">
         <div
           className=" flex items-center justify-center w-full h-full"style={{transform: `scale(${scale})`, width: `${canvasWidth}px`, height: `${canvasHeight}px`,visibility: ready ? "visible" : "hidden", }}>
-          <div ref={(el) => {slideRefs.current[index] = el;}} className="w-fit h-fit">{slides[index]}</div>
+          <div ref={(el) => {slideRefs.current[index] = el;}} className="w-fit h-fit select-none">{slides[index]}</div>
         </div>
 
       <div className="mt-4 flex items-center gap-4">
