@@ -18,12 +18,20 @@ interface MdxPreview {
 
 export default function SlidePreviewPage() {
   const [mdx, setMdx] = useState<MdxPreview | null>(null);
-  const canvasWidth=parseInt(sessionStorage.getItem("canvasWidth") || "896"); // 默认画布宽度
-  const canvasHeight=parseInt(sessionStorage.getItem("canvasHeight") || "720"); // 默认画布高度
+  const [canvasWidth, setCanvasWidth] = useState(896);
+  const [canvasHeight, setCanvasHeight] = useState(720);
  
   const router = useRouter();
  
   useEffect(() => {
+    const rawCanvasWidth = sessionStorage.getItem("canvasWidth");
+    const rawCanvasHeight = sessionStorage.getItem("canvasHeight");
+    const parsedCanvasWidth = rawCanvasWidth ? parseInt(rawCanvasWidth, 10) : 896;
+    const parsedCanvasHeight = rawCanvasHeight ? parseInt(rawCanvasHeight, 10) : 720;
+
+    setCanvasWidth(Number.isFinite(parsedCanvasWidth) ? parsedCanvasWidth : 896);
+    setCanvasHeight(Number.isFinite(parsedCanvasHeight) ? parsedCanvasHeight : 720);
+
     const raw = sessionStorage.getItem("mdx-preview");
     if (raw && raw.trim()) {
       try {
