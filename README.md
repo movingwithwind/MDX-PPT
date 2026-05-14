@@ -7,16 +7,16 @@
 <a name="english"></a>
 ## English
 
-**MDX-PPT** is an interactive presentation web application built on Next.js 16 and MDX. It empowers developers and tech enthusiasts to write slides using standard Markdown with React components and render them directly in the browser.
+**MDX-PPT** is a lightweight, modern tool built on Next.js 16 and MDX that instantly converts Markdown into playable slides. It focuses on fast authoring and quick delivery: import Markdown, get a live slide preview, and export production-quality PDFs without heavy setup.
 
-### ✨ Features
-- **MDX Powered:** Write in Markdown and embed custom React components. Slide pagination is automatically separated by `---`.
-- **Code Highlighting:** Integrated with `shiki` and `remark/rehype` for beautiful, VS Code-like coding snippets.
-- **AI Assist:** Integrated OpenAI/DeepSeek API support to automatically paginate and enhance lengthy markdown texts.
-- **Export to PDF & PPTX:** Use Playwright (Chromium) for high-fidelity PDF exports and `html2canvas` + `pptxgenjs` for PPTX extraction.
-- **Responsive Canvas:** Uses `ResizeObserver` for dynamic aspect-ratio scaling to guarantee the layout looks great on any screen.
-- **Drag & Drop Uploads:** Directly drag your `.md` or `.mdx` files into the browser.
-- **Secure Image Checks:** Built-in SSRF protection against internal/private IP redirections on external images.
+### ✨ Key Capabilities
+- **Instant Slides from Markdown:** Drop or paste standard Markdown/MDX and get slides generated automatically.
+- **Live Preview & Sync Scroll:** Real-time preview with synchronized scrolling between editor and slide view for quick editing and review.
+- **High‑Quality Code Highlighting:** Beautiful code rendering via `shiki` and `remark/rehype` integrations.
+- **High‑Fidelity PDF Export:** Produce print-ready PDFs using Playwright (Chromium) for consistent, high-quality output.
+- **MDX Extensibility:** Embed React components inside slides when you need interactive bits or custom UI.
+- **Lightweight Workflow:** Designed for fast, ad‑hoc presentations — minimal config, no heavy slide frameworks.
+- **Drag & Drop Upload:** Quickly import `.md` / `.mdx` files and start presenting.
 
 ### 🚀 Getting Started
 
@@ -53,16 +53,16 @@
 <a name="中文"></a>
 ## 中文
 
-**MDX-PPT** 是一个基于 Next.js 16 和 MDX 构建的交互式演示文稿 Web 引用。它允许开发者通过标准 Markdown 语法（支持嵌入 React 组件）来编写幻灯片，并在浏览器中直接进行演示。
+**MDX-PPT** 是一个基于 Next.js 16 与 MDX 的轻量化幻灯片工具，旨在将 Markdown 快速转换为可播放的演示稿。它强调快速、简单的制作流程：导入 Markdown 即时预览，同步滚动编辑，支持高质量代码高亮与 PDF 输出，适合制作快速、轻量化的演示文稿。
 
-### ✨ 核心特性
-- **MDX 驱动：** 支持 Markdown 语法和自定义 React 组件。通过标准的 `---` 分隔符自动进行幻灯片的分页。
-- **代码高亮：** 内置 `shiki` 和 `remark/rehype` 插件链，提供与 VS Code 一致的高保真代码高亮体验。
-- **AI 辅助：** 接入 OpenAI/DeepSeek 兼容 API，支持智能长文分页与排版整理。
-- **PDF与 PPTX 导出：** 服务端采用基于 Playwright (Chromium) 的无头浏览器技术生成高清晰度 PDF。
-- **自适应画布：** 利用 `ResizeObserver` 动态计算内容尺寸并同步缩放，保证大屏和移动端不出现布局溢出。
-- **文件拖拽：** 提供直观的拖拽上传交互，即刻在浏览器中预览 `.md` / `.mdx` 文件。
-- **安全的图片校验：** 服务端内置严格的 IP 白名单与反重定向机制，防范 SSRF (服务端请求伪造) 攻击。
+### ✨ 主要能力
+- **Markdown 一键成片：** 导入或粘贴标准 Markdown/MDX 即可自动生成幻灯片。
+- **实时预览与同步滚动：** 编辑器与幻灯片视图实时同步，修改即见效果，提升演示准备效率。
+- **高保真代码高亮：** 通过 `shiki` 与 `remark/rehype` 提供接近 VS Code 的代码展示效果。
+- **高质量 PDF 导出：** 使用 Playwright (Chromium) 生成可打印的高保真 PDF。
+- **MDX 扩展性：** 支持在幻灯片中嵌入 React 组件，实现交互或自定义内容。
+- **轻量化工作流：** 最小配置即可使用，适合快速制作和现场演示。
+- **拖拽导入：** 支持直接拖入 `.md` / `.mdx` 文件快速开始。
 
 ### 🚀 快速开始
 
